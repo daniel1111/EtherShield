@@ -216,7 +216,7 @@ void EtherShield::ES_init_len_info(uint8_t *buf) {
 	init_len_info(buf);
 }
 
-void EtherShield::ES_fill_buf_p(uint8_t *buf,uint16_t len, const prog_char *progmem_s) {
+void EtherShield::ES_fill_buf_p(uint8_t *buf,uint16_t len, const char *progmem_s) {
 	fill_buf_p(buf, len, progmem_s);
 }
 
@@ -237,7 +237,7 @@ uint16_t EtherShield::ES_packetloop_icmp_tcp(uint8_t *buf,uint16_t plen) {
 	return packetloop_icmp_tcp(buf,plen);
 }
 
-uint16_t EtherShield::ES_fill_tcp_data_p(uint8_t *buf,uint16_t pos, const prog_char *progmem_s){
+uint16_t EtherShield::ES_fill_tcp_data_p(uint8_t *buf,uint16_t pos, const char *progmem_s){
 	return fill_tcp_data_p(buf, pos, progmem_s);
 }
 
@@ -296,7 +296,7 @@ uint16_t EtherShield::ES_tcp_get_dlength( uint8_t *buf ){
 // ----- http get
 
 #ifdef FLASH_VARS
-void EtherShield::ES_client_browse_url(prog_char *urlbuf, char *urlbuf_varpart, prog_char *hoststr,
+void EtherShield::ES_client_browse_url(char *urlbuf, char *urlbuf_varpart, char *hoststr,
 		void (*callback)(uint8_t,uint16_t,uint16_t)) {
 	client_browse_url(urlbuf, urlbuf_varpart, hoststr, callback);
 }
@@ -308,8 +308,8 @@ void EtherShield::ES_client_browse_url(char *urlbuf, char *urlbuf_varpart, char 
 #endif		// FLASH_VARS
 
 #ifdef FLASH_VARS
-void EtherShield::ES_client_http_post(prog_char *urlbuf, prog_char *hoststr, prog_char *additionalheaderline,
-		prog_char *method, char *postval,void (*callback)(uint8_t,uint16_t)) {
+void EtherShield::ES_client_http_post(char *urlbuf, char *hoststr, char *additionalheaderline,
+		char *method, char *postval,void (*callback)(uint8_t,uint16_t)) {
 	client_http_post(urlbuf, hoststr, additionalheaderline, method, postval,callback);
 }
 #else
